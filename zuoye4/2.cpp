@@ -67,11 +67,15 @@ int main() {
     for (int i = 0; i < numProblems; ++i) {
         string problem = generateProblem(maxNumber, ops, useBrackets, useDecimal);
         string fullProblem = "题目 " + to_string(i + 1) + ": " + problem + " = ?";
-        printOrSaveProblem(fullProblem, out);
 
+        printOrSaveProblem(fullProblem, out);
+      
         if (interactiveMode) {
             double correctAnswer = evaluateExpression(problem);
-            //cout << fullProblem << endl;
+            if (outputMode == 'F')
+            {
+                cout << fullProblem << endl;
+            }
             cout << "请输入您的答案: ";
             double userAnswer;
             cin >> userAnswer;
